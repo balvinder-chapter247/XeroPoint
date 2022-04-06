@@ -9,9 +9,8 @@ import { RestrictRoute, PublicRoute, PrivateRoute } from './routes';
 import FullPageLoader from '../components/FullPageLoader/FullPageLoader';
 const Routing = () => {
   const history = createHistory();
-  const store = configureStore(history)
+  const store = configureStore(history);
 
-  const token = localStorage.getItem("token");
   return (
     <Provider store={store}>
       <Router history={history}>
@@ -23,14 +22,10 @@ const Routing = () => {
             {publicRoutes.map((routes) => (
               <PublicRoute {...routes} />
             ))}
-              {
-              token ?  
-              <>
-              {privateRoutes.map((routes) => (
-                <PrivateRoute {...routes} />
-              ))}</> : null
-            }
-           <Route
+            {privateRoutes.map((routes) => (
+              <PrivateRoute {...routes} />
+            ))}
+            <Route
               render={() => <Redirect to={{ pathname: AppRoutes.HOME }} />}
             />
           </Switch>

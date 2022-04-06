@@ -1,15 +1,11 @@
 const token =  localStorage.getItem("token");
-const navigation = 
-  token ? 
- [ { name: 'Home', href: '/', current: true },
-    { name: 'My Courses', href: '/my-courses', current: false },
-    { name: 'Market Place', href: '/marketplace', current: false },
-    { name: 'About Us', href: '/about-us', current: false },
-    { name: 'Contact Us', href: '/contact-us', current: false },]
-  : 
-    [{ name: 'Home', href: '/', current: true },
-    { name: 'Market Place', href: '/marketplace', current: false },
-    { name: 'About Us', href: '/about-us', current: false },
-    { name: 'Contact Us', href: '/contact-us', current: false },]
-  
+
+const navigation = [
+  { name: "Home", href: "/", current: true, token: true },
+  { name: "My Courses", href: "/my-courses", current: false, token },
+  { name: "Market Place", href: "/marketplace", current: false, token: true },
+  { name: "About Us", href: "/about-us", current: false, token: true },
+  { name: "Contact Us", href: "/contact-us", current: false, token: true },
+];
+
   export default navigation
