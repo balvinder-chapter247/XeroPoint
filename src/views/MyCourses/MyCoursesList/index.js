@@ -21,7 +21,12 @@ const MyCourseList = (myCourseData) => {
                                             <div className="edit-icon">
                                                 <i class="fas fa-pencil"></i>
                                             </div>
-                                        </Link> : null
+                                        </Link> : 
+                                        <Link to="edit-course">
+                                            <div className="edit-icon">
+                                                <i class="fas fa-pencil"></i>
+                                            </div>
+                                        </Link> 
                                     }
                                     <div className="p-6">
                                         <div className='course_content'>
