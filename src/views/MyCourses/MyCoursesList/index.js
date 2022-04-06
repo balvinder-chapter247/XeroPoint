@@ -11,7 +11,9 @@ const MyCourseList = (myCourseData) => {
                                 data.map((courseList) => 
                                 <div className="my_course_item relative bg-white shadow-sm hover:shadow-lg transition duration-500">
                                     <div className='overflow-hidden h-56 rounded-tl-md rounded-tr-md'>
-                                        <img className="h-56 w-full object-cover course_image" src={courseList.courseImage} alt="" />
+                                        <Link to="course-details">
+                                            <img className="h-56 w-full object-cover course_image" src={courseList.courseImage} alt="" />
+                                        </Link>
                                     </div>
                                     {
                                         courseList.courseType === "Create Course" ? 
@@ -25,7 +27,7 @@ const MyCourseList = (myCourseData) => {
                                         <div className='course_content'>
                                             <Link to="#" className={`blog_tag ${courseList.courseTagColor}`}>{courseList.courseTag}</Link>
                                             <h5 className='leading-6 course_name'>
-                                                <Link to="#" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
+                                                <Link to="course-details" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
                                             </h5>
                                         </div>
                                         <div className='flex items-center justify-between text-gray-600'>

@@ -10,18 +10,18 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import AddInputs from './components/Addinput';
 import { Link } from "react-router-dom";
-import Category from './components/SelectValue';
+// import Category from './components/SelectValue';
 import ReactTooltip from 'react-tooltip';
 
 
-const category = [
-    { optionValue: "Programming", label: "Programming" },
-    { optionValue: "Data Analytics", label: "Data Analytics" },
-];
-const subCategory = [
-    { optionValue: "Web Development", label: "Web Development" },
-    { optionValue: "Data Science", label: "Data Science" },
-];
+// const category = [
+//     { optionValue: "Programming", label: "Programming" },
+//     { optionValue: "Data Analytics", label: "Data Analytics" },
+// ];
+// const subCategory = [
+//     { optionValue: "Web Development", label: "Web Development" },
+//     { optionValue: "Data Science", label: "Data Science" },
+// ];
 
 const AddCourse = () => {
 
@@ -69,7 +69,7 @@ const AddCourse = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
-
+        
         if (formState.isValid) {
             let addedCourse = JSON.parse(localStorage.getItem("addedCourse"));
             let tempArray = addedCourse;
@@ -363,6 +363,7 @@ const AddCourse = () => {
                                                             labelclassName="block font-medium mb-2 text-gray-700"
                                                             className="block font-medium"
                                                             type='text'
+                                                            name="objective1"
                                                             value={formState.values.objective1 || ""}
                                                             errorMessage={hasError("objective1") ?
                                                                 formState.errors.objective1[0] : null}
@@ -382,6 +383,7 @@ const AddCourse = () => {
                                                             labelclassName="block font-medium mb-2 text-gray-700"
                                                             className="block font-medium"
                                                             type='text'
+                                                            name="objective2"
                                                             value={formState.values.objective2 || ""}
                                                             errorMessage={hasError("objective2") ?
                                                                 formState.errors.objective2[0] : null}
@@ -401,6 +403,7 @@ const AddCourse = () => {
                                                             labelclassName="block font-medium mb-2 text-gray-700"
                                                             className="block font-medium"
                                                             type='text'
+                                                            name="objective3"
                                                             value={formState.values.objective3 || ""}
                                                             errorMessage={hasError("objective3") ?
                                                                 formState.errors.objective3[0] : null}

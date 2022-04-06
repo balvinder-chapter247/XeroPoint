@@ -14,7 +14,9 @@ const NewCourses = (newCourseData) => {
                                             <div className={`course_tag absolute font-medium text-white rounded ${courseList.bgClassName}`}>
                                                 {courseList.courseTag}
                                             </div>
+                                            <Link to="course-details">
                                             <img className="course_image h-56 w-full object-cover" src={courseList.courseImage} />
+                                            </Link>
                                         </div>
                                         <div className="course_content p-4">
                                             <div className='flex items-center justify-between pb-4'>
@@ -28,7 +30,7 @@ const NewCourses = (newCourseData) => {
                                                 </div>
                                             </div>
                                             <h5 className='leading-6 course_name'>
-                                            <Link to="" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
+                                            <Link to="course-detail" className="font-medium block hover:text-blue-700">{courseList.courseName}</Link>
                                             </h5>
                                             <div className="course-owner flex items-center text-gray-600">
                                                 <img src='./images/user-1.jpg' alt='' />

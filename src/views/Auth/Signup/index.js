@@ -95,10 +95,7 @@ const Signup = () => {
                     history.push('/login')
                 }
             } else {
-                Toaster({
-                    type: "success",
-                    text: "You have successfully registered."
-                })
+                
                 let tempArray = [];
 
                 tempArray.push(formState.values);
