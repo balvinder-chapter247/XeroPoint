@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import navigation from "./Navigation/navigation";
 import NoDp from "../../assets/Images/TopBar/noProfile.webp";
+import { AppRoutes } from "../../routes/AppRoutes";
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
@@ -136,7 +137,7 @@ const Header = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <Link
-                                to='dashboard'
+                                to={AppRoutes.DASHBOARD}
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "profile-link block px-4 py-2.5 text-sm text-gray-700"
@@ -159,7 +160,7 @@ const Header = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <Link
-                                to='/add-cart'
+                                to={AppRoutes.ADD_CART}
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "profile-link block px-4 py-2.5 text-sm text-gray-700"
@@ -206,7 +207,7 @@ const Header = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              to='login'
+                              to={AppRoutes.LOGIN}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2.5 text-sm text-gray-700"
@@ -220,7 +221,7 @@ const Header = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              to='sign-up'
+                              to={AppRoutes.SIGNUP}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2.5 text-sm text-gray-700"
