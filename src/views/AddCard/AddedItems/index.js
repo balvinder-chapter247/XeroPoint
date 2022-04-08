@@ -60,7 +60,7 @@ const Addeditems = () => {
                                     <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" key={cartItem.id}>
                                         <div className="flex w-2/5">
                                             <div className="">
-                                                <img className="h-24" src={cartItem.courseImage} className="cartImage" />
+                                                <img className="h-24 cartImage" src={cartItem.courseImage} />
                                             </div>
                                         </div>
                                         <div className="flex w-2/5">
