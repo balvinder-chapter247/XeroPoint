@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import navigation from "./Navigation/navigation";
 import NoDp from "../../assets/Images/TopBar/noProfile.webp";
 
+import MyCourseList from "../../views/MyCourses/MyCoursesList";
+
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ");
 };
@@ -20,7 +22,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const loginDetails = JSON.parse(localStorage.getItem("registeredUsers"));
-    console.log(loginDetails);
+    // console.log(loginDetails);
     if (token) {
       setToken(token);
       if (loginDetails && loginDetails.length) {
@@ -51,6 +53,17 @@ const Header = () => {
   window.addEventListener("scroll", changeNavbarColor);
   // <nav className="navbar navbar-expand-lg navbar-dark sticky-top" id={colorChange ? "navactive" : "navigation_bar"}>
 
+  let Data = JSON.parse(localStorage.getItem("cart"));
+
+  // const lenObj = JSON.parse(localStorage.getItem('cart'));
+  // var count = 0;
+  // for(var item in lenObj) {
+  //   count += lenObj[item].length
+  // }
+  // console.log("JSON obj length: ",count);
+
+
+
   return (
     <Disclosure
       as="nav"
@@ -79,7 +92,7 @@ const Header = () => {
                   <Link to="">
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                      src="./images/workflow-logo.svg"
                       alt="Workflow"
                     />
                   </Link>
@@ -103,88 +116,97 @@ const Header = () => {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {token ? (
-                  <Menu as="div" className="ml-3 relative">
-                    <div>
-                      <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span className="sr-only">Open user menu</span>
-
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src={profileImage ? profileImage : NoDp}
-                          alt=""
-                        />
-                      </Menu.Button>
+                  <div className=" flex items-center">
+                    <div className="cart_icon text-white mr-8 relative">
+                      <Link to="/add-cart">
+                        <i className="fas fa-shopping-cart"></i>
+                        <span className="count absolute">{Data ? Data.length : null}</span>
+                      </Link>
                     </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="profile-dropdown origin-top-right absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div class="user-login py-2.5 px-4">
-                          <h6 class="name mb-0">
-                            {profileName ? profileName : "jon doe"}
-                          </h6>
-                          <p class="profession mb-0">Software Engineer</p>
-                        </div>
-                        <div className="user-profile">
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link
-                                to="dashboard"
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "profile-link block px-4 py-2.5 text-sm text-gray-700"
-                                )}
-                              >
-                                <i class="fas fa-user"></i> Profile Setting
-                              </Link>
-                            )}
-                          </Menu.Item>
-                          {/* <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="my-courses"
-                            className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
-                          >
-                          <i class="fa fa-book"></i> My Courses
-                          </Link>
-                        )}
-                      </Menu.Item> */}
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link
-                                to="/add-cart"
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "profile-link block px-4 py-2.5 text-sm text-gray-700"
-                                )}
-                              >
-                                <i class="fas fa-shopping-cart"></i> Cart
-                              </Link>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link
-                                onClick={handleLogout}
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "profile-link block px-4 py-2.5 text-sm text-gray-700"
-                                )}
-                              >
-                                <i class="fas fa-sign-out-alt"></i> Sign out
-                              </Link>
-                            )}
-                          </Menu.Item>
-                        </div>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
+                    <Menu as="div" className="ml-3">
+                      <div>
+                        <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                          <span className="sr-only">Open user menu</span>
+                          
+                          <img
+                            className="h-8 w-8 rounded-full"
+                            src={profileImage ? profileImage : NoDp}
+                            alt=""
+                          />
+                        </Menu.Button>
+                      </div>
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items className="profile-dropdown origin-top-right absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <div className="user-login py-2.5 px-4">
+                            <h6 className="name mb-0">
+                              {profileName ? profileName : "jon doe"}
+                            </h6>
+                            <p className="profession mb-0">Software Engineer</p>
+                          </div>
+                          <div className="user-profile">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="dashboard"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "profile-link block px-4 py-2.5 text-sm text-gray-700"
+                                  )}
+                                >
+                                  <i className="fas fa-user"></i> Profile Setting
+                                </Link>
+                              )}
+                            </Menu.Item>
+                            {/* <Menu.Item>
+                          {({ active }) => (
+                            <Link
+                              to="my-courses"
+                              className={classNames(active ? 'bg-gray-100' : '', 'profile-link block px-4 py-2.5 text-sm text-gray-700')}
+                            >
+                            <i className="fa fa-book"></i> My Courses
+                            </Link>
+                          )}
+                        </Menu.Item> */}
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to="/add-cart"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "profile-link block px-4 py-2.5 text-sm text-gray-700"
+                                  )}
+                                >
+                                  <i className="fas fa-shopping-cart"></i> Cart
+                                </Link>
+                              )}
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  onClick={handleLogout}
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "profile-link block px-4 py-2.5 text-sm text-gray-700"
+                                  )}
+                                >
+                                  <i className="fas fa-sign-out-alt"></i> Sign out
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          </div>
+                        </Menu.Items>
+                      </Transition>
+                    </Menu>
+                  </div>
+                  
                 ) : (
                   <Menu as="div" className="ml-3 relative">
                     <div>
@@ -211,7 +233,7 @@ const Header = () => {
                                 "block px-4 py-2.5 text-sm text-gray-700"
                               )}
                             >
-                              <i class="fa fa-sign-in" aria-hidden="true"></i>{" "}
+                              <i className="fa fa-sign-in" aria-hidden="true"></i>{" "}
                               Login
                             </Link>
                           )}
@@ -225,7 +247,7 @@ const Header = () => {
                                 "block px-4 py-2.5 text-sm text-gray-700"
                               )}
                             >
-                              <i class="fa fa-user-plus" aria-hidden="true"></i>{" "}
+                              <i className="fa fa-user-plus" aria-hidden="true"></i>{" "}
                               Signup
                             </Link>
                           )}

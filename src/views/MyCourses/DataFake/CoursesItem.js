@@ -8,8 +8,9 @@ const coursesItem = [
         courseOwnerProfile: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
         courseOwner: "Jassica Miller",
         courseButton: "Start Course",
-        courseType: "Create Course",
+        courseType: "Purchase Course",
         courseDate: "May 12, 2022",
+        coursePrice: "99.95",
     },
     {
         id: "2",
@@ -22,6 +23,7 @@ const coursesItem = [
         courseButton: "Start Course",
         courseType: "Purchase Course",
         courseDate: "June 05, 2022",
+        coursePrice: "49.95",
     },
     {
         id: "3",
@@ -34,6 +36,7 @@ const coursesItem = [
         courseButton: "Start Course",
         courseType: "Create Course",
         courseDate: "August 22, 2021",
+        coursePrice: "79.95",
       },
       {
           id: "4",
@@ -46,6 +49,7 @@ const coursesItem = [
           courseButton: "Start Course",
             courseType: "Purchase Course",
             courseDate: "August 22, 2021",
+            coursePrice: "59.95",
       },
       {
         id: "5",
@@ -58,6 +62,7 @@ const coursesItem = [
         courseButton: "Start Course",
         courseType: "Create Course",
         courseDate: "August 22, 2021",
+        coursePrice: "44.95",
       
     },
     {
@@ -71,6 +76,7 @@ const coursesItem = [
         courseButton: "Start Course",
         courseType: "Create Course",
         courseDate: "August 22, 2021",
+        coursePrice: "39.95",
     },
     {
         id: "7",
@@ -83,6 +89,7 @@ const coursesItem = [
         courseButton: "Start Course",
         courseType: "Purchase Course",
         courseDate: "August 22, 2021",
+        coursePrice: "89.95",
       },
       {
           id: "8",
@@ -95,6 +102,7 @@ const coursesItem = [
           courseButton: "Start Course",
         courseType: "Create Course",
         courseDate: "August 22, 2021",
+        coursePrice: "29.95",
       },
       {
         id: "9",
@@ -107,6 +115,7 @@ const coursesItem = [
         courseButton: "Start Course",
       courseType: "Create Course",
       courseDate: "August 22, 2021",
+      coursePrice: "59.95",
     },
   ];
 

@@ -11,7 +11,7 @@ const AddCard = () => {
                 <section className='sec-padding'>
                     <div className="container container-small mx-auto px-5 ">
                         <div class="grid grid-cols-12 box_shadow">
-                            <div class="col-span-8">
+                            <div class="col-span-8 bg-white">
                                 <Addeditems Data={AddcardDummy} />
                             </div>
                             <div class="col-span-4">

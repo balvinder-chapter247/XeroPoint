@@ -19,7 +19,7 @@ const Footer = () => {
                                 <h5 className="flex items-center">
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                                    src="./images/workflow-logo.svg"
                                     alt="Workflow"
                                 />
                                 </h5>
