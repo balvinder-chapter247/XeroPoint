@@ -8,11 +8,10 @@ const Addeditems = () => {
     
     useEffect(() => {
         let Data = JSON.parse(localStorage.getItem("cart"));
-        if(Data && Data.length) {
-            setItems(Data)
-        }
-        }, []);
-
+            if(Data && Data.length) {
+                setItems(Data)
+            }
+        }, [items]);
 
     const deleteItem = (index) => {
         let cartData = items
@@ -22,21 +21,6 @@ const Addeditems = () => {
         localStorage.setItem("cart", JSON.stringify(cartData))
         // console.log(cartData, "cart");
     }
-
-    
-    // const getElementsfromLocalStorage = () => {
-    //     let elements = [];
-    //     if (localStorage.getItem('cart')) {
-    //         elements = JSON.parse(localStorage.getItem('cart'));
-    //     }
-    //     return elements;
-    // };
-    
-    // const deleteItem = (id) => {
-    //     let elements = getElementsfromLocalStorage();
-    //     elements = elements.filter(element => element.id !== id);
-    //     localStorage.setItem('cart', JSON.stringify(elements));
-    // };
 
     return (
         <>

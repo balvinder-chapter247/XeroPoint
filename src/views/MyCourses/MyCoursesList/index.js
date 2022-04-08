@@ -90,13 +90,13 @@ const MyCourseList = (myCourseData) => {
                                         {
                                             courseList.courseType === "Create Course" ? 
                                             
-                                            <button className="mx-auto bg-theme-color hover:bg-blue-700 px-4 py-2 rounded text-white">
+                                            <button className="mx-auto blue-btn-md rounded text-white border">
                                             <Link to="edit-course">
                                             Edit Course </Link></button>
                                              : 
                                             
                                             <button onClick={() => addToCart(courseList)}
-                                             className="mx-auto bg-theme-color hover:bg-blue-700 px-4 py-2 rounded text-white">
+                                             className="mx-auto blue-btn-md rounded text-white">
                                             Add to Cart</button>
                                         }
                                             

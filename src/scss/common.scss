@@ -757,6 +757,26 @@ span.error {
     }
 }
 
+.blue-btn-md {
+    background-image: linear-gradient(to left, #0a6bcf, #0b2bc9);
+    padding: 8px 20px;
+    transition: all 0.4s ease-in-out;
+    border: 2px solid;
+    &:hover {
+        background: transparent;
+        color: #0b30c9;
+    }
+}
+
+.blue-btn-md.border {
+    background: transparent;
+    color: #0b30c9;
+    &:hover {
+        background-image: linear-gradient(to left, #0a6bcf, #0b2bc9);
+        color: #fff;
+    }
+}
+
 .red-btn {
     background-color: rgb(224, 63, 63);
     font-size: 16px;
