@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import ReactTooltip from 'react-tooltip';
+import { checkCart } from '../../../helper/utility'
 
 const MyCourseList = (myCourseData) => {
 
@@ -19,6 +21,7 @@ const MyCourseList = (myCourseData) => {
             quantity: 1,
           };
           newCart.push(itemInCart);
+          
         }
         setCart(newCart);
       };
@@ -32,8 +35,19 @@ const MyCourseList = (myCourseData) => {
         localStorage.setItem("cart", JSON.stringify(cart))
       }, [cart]);
 
-    //   console.log(cart.length, "cart")
-    
+
+    //   const [disableCart, setDisableCart] = useState(false)
+    //     useEffect(() => {
+    //         const addedCartItem = JSON.parse(localStorage.getItem("cart"));
+    //         if (JSON.stringify(addedCartItem.id) === JSON.stringify(data.id)) {
+    //         // if (addedCartItem.id === data.id) {
+    //             setDisableCart(true);
+    //         }
+    //         else {
+    //             setDisableCart(false)
+    //         }
+    //     }, [])
+
     const { data } = myCourseData 
     return (
         <>
@@ -42,7 +56,7 @@ const MyCourseList = (myCourseData) => {
                         data && data.length ? 
                         <>
                             {
-                                data.map((courseList, id) => 
+                                data.map((courseList, index) => 
                                 <div className="my_course_item relative bg-white shadow-sm hover:shadow-lg transition duration-500">
                                     <div className='overflow-hidden h-56 rounded-tl-md rounded-tr-md'>
                                         <Link to="course-details">
@@ -95,9 +109,15 @@ const MyCourseList = (myCourseData) => {
                                             Edit Course </Link></button>
                                              : 
                                             
-                                            <button onClick={() => addToCart(courseList)}
-                                             className="mx-auto blue-btn-md rounded text-white">
-                                            Add to Cart</button>
+                                                checkCart(courseList.id) ? 
+
+                                                <button className='mx-auto blue-btn-md rounded text-white disable' disabled>
+                                                Added to Cart</button> :
+                                            
+                                                <button onClick={() => addToCart(courseList)}
+                                                // disabled={cart.some(cartItem => cartItem.id === courseList.id)}
+                                                className='mx-auto blue-btn-md rounded text-white'>
+                                                Add to Cart</button>
                                         }
                                             
                                         </div>
