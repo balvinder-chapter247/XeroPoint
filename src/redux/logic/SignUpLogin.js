@@ -36,6 +36,4 @@ const SignUpLogic = createLogic({
 });
 
 
-export const SignUpLogics = [
-    SignUpLogic
-];
+export const SignUpLogics = [SignUpLogic];
